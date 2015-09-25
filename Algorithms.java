@@ -15,6 +15,6 @@ public class Algorithms
      */
     public static int euclid(@PositiveInteger int m, @PositiveInteger int n)
     {
-        return (m / n == 0) ? n : euclid(n, (m / n));
+        return m % n == 0 ? n : euclid(n, m % n);
     }
 }

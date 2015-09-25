@@ -3,14 +3,22 @@ public class AlgorithmsTest
 
     public static void main(String[] args)
     {
-        testEuclid();
+        exerciseEuclid();
     }
 
-
-    static void testEuclid()
+    static void exerciseEuclid()
     {
-        System.out.println("Euclids result: " + Algorithms.euclid(100, 24));
-        System.out.println("Euclids result: " + Algorithms.euclid(100, 0));
+        testEuclid(55, 12222);
+        testEuclid(39485784, 324340);
+        testEuclid(551, 119);
+        testEuclid(200, 400);
+        testEuclid(544, 119);
+        testEuclid(119, 544);
     }
 
+    static void testEuclid(int m, int n)
+    {
+        System.out.println(String.format(
+                "Euclids result for m = %1$s, n = %2$s is: %3$s.", m, n, Algorithms.euclid(m, n)));
+    }
 }
