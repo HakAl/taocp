@@ -1,12 +1,13 @@
+import java.lang.System;
+
 public class AlgorithmsTest
 {
     static final int ITERATIONS = 1000000;
 
     public static void main(String[] args)
     {
-        System.out.println("results for 10,000 iterations on euclid(): " + runBenchmark(10000));
-        System.out.println("results for 10,000 iterations on euclidOne(): " + runBenchmarkA(10000));
-        System.out.println("results for 10,000 iterations on euclidTwo(): " + runBenchmarkB(10000));
+        System.out.println("Results for Euclid() == " + Algorithms.euclid(544, 119));
+        System.out.println("Results for Euclid() == " + Algorithms.algorithmE(544, 119));
     }
 
     /**

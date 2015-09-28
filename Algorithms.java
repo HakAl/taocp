@@ -41,4 +41,23 @@ public class Algorithms
         }
         return n;
     }
+
+    /**
+     * Avoid all trivial replacements m <- n
+     */
+    public static int algorithmE(@PositiveInteger int m, @PositiveInteger int n)
+    {
+        int r;
+        if (m > n) {
+            r = n % m;
+            return euclid(n, r);
+        } else {
+            r = m % n;
+            if (r == 0) {
+                return n;
+            } else {
+                return euclid(n, r);
+            }
+        }
+    }
 }
