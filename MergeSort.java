@@ -14,7 +14,13 @@ public class MergeSort
         arr[6] = 3;
         arr[7] = 2;
         arr[8] = 1;
-        mergeSort(arr);
+        arr = merge(arr);
+
+
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("Index "+i+" = "+arr[i]);
+        }
     }
 
     /**
@@ -23,24 +29,35 @@ public class MergeSort
      * p, q, r are indicies in the array such that p <= q < r
      * Assume subarrays A[p ... q] and A[q+1 ... r] are sorted
      */
-    public static int[] mergeSort(int[] a)
+    public static int[] merge(int[] a)
     {
         int length = a.length;
         if (length <= 1) return a;
 
         int pivot = length / 2;
-        int[] left = new int[pivot];
-        int[] right = new int[length - pivot];
+        int[] left = new int[pivot+1];
+        int[] right = new int[length - pivot + 1];
 
-        System.out.println("Loading left array...");
-        for (int i = 0; i < left.length; i++) {
-            System.out.println("i = "+i+", value at index = "+a[i]);
+        for (int i = 0; i < (left.length - 1); i++) {
             left[i] = a[i];
         }
-        System.out.println("Loading right array...");
-        for (int i = 0; i < right.length; i++) {
-            System.out.println("i = "+i+", value at index = "+a[pivot + i]);
+        for (int i = 0; i < (right.length - 1); i++) {
             right[i] = a[pivot + i];
+        }
+        left[left.length-1] = Integer.MAX_VALUE;
+        right[right.length-1] = Integer.MAX_VALUE;
+
+        int l = 0;
+        int r = 0;
+
+        for (int i = 0; i < length; i++) {
+            if (left[l] <= right[r]) {
+                a[i] = left[l];
+                l++;
+            } else {
+                a[i] = right[r];
+                r++;
+            }
         }
 
         return a;
